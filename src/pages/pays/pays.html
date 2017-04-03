@@ -15,7 +15,7 @@
       <h2><strong> {{item.storeName}}</strong></h2>
       <h3>Vencimento {{item.expirationDate}}</h3>
       <p>Ativa desde {{item.createdDate}}</p>
-      <button ion-button outline item-right icon-left (click)="openModal({idAccount: item.idAccount,storeName: item.storeName, expirationDate:item.expirationDate})" >
+      <button ion-button outline item-right icon-left (click)="openModal({idAccount: item.idAccount,storeName: item.storeName, idPlan: item.idPlan, expirationDate:item.expirationDate})" >
       <ion-icon name="cash"></ion-icon>
       Adicionar
     </button>

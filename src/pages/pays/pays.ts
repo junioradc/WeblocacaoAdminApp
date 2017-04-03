@@ -12,15 +12,16 @@ import { ModalAccountStoreListPage } from '../modal-account-store-list/modal-acc
 })
 export class PaysPage {
   public listStores: any;
-
-  constructor(public dataService: DataService, public modalCtrl: ModalController,
+  constructor( public dataService: DataService, public modalCtrl: ModalController,
     public loadingCtrl: LoadingController, public toastCtrl: ToastController,
     public navCtrl: NavController, public navParams: NavParams) {
+
+   
 
 
   }
   openModal(data) {
-     console.log(data);
+    console.log(data);
     let modal = this.modalCtrl.create(ModalAccountStoreListPage, data);
     modal.present();
   }

@@ -11,24 +11,53 @@
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
-
 <ion-content>
   <ion-list>
     <ion-item>
       <ion-label fixed>Loja</ion-label>
-      <ion-input [(ngModel)]="storeName"  type="text"></ion-input>
+      <ion-input [(ngModel)]="storeName" type="text"></ion-input>
     </ion-item>
-    <ion-item>
-      <ion-label fixed>Vencimento</ion-label>
-      <ion-input type="text" [(ngModel)]="expirationDate" readonly></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label fixed>Próximo Vencimento</ion-label>
-     <ion-datetime  displayFormat="DD/MM/YYYY"></ion-datetime>
-    </ion-item>
-
+    <form [formGroup]="form">
+      <ion-item>
+        <ion-label fixed>Vencimento</ion-label>
+        <ion-input type="text" disabled="true" formControlName="expiratedDate" [(ngModel)]="expiratedDate"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label fixed>Próximo Vencimento</ion-label>
+        <ion-datetime formControlName="expirationDate" displayFormat="DD/MM/YYYY"></ion-datetime>
+      </ion-item>
+      <ion-item>
+        <ion-label fixed>Plano</ion-label>
+        <ion-select [(ngModel)]="idPlan" formControlName="idPlan">
+          <ion-option value="4" [selected]="idPlan === '4'">Premium (R$ 140)</ion-option>
+          <ion-option value="5" [selected]="idPlan === '5'">Premium + Boleto (R$ 160)</ion-option>
+          <ion-option value="6" [selected]="idPlan === '6'">Premium + SMS (R$ 160)</ion-option>
+          <ion-option value="7" [selected]="idPlan === '7'">Premium + SMS + Boleto (R$ 180)</ion-option>
+          <ion-option value="8" [selected]="idPlan === '8'">Ultimate (R$ 240)</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label fixed>Valor Pagto</ion-label>
+        <ion-input [(ngModel)]="totalCost" formControlName="totalCost" type="number"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label fixed>Quantidade meses</ion-label>
+        <ion-input [(ngModel)]="qtty" formControlName="qtty" type="number"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label fixed>Descrição</ion-label>
+        <ion-input [(ngModel)]="payDescription" formControlName="payDescription" type="text"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label fixed>Alterar plano?</ion-label>
+        <ion-select [(ngModel)]="updatePlan" formControlName="updatePlan">
+          <ion-option value="True">Sim</ion-option>
+          <ion-option value="False" selected="true">Não</ion-option>
+        </ion-select>
+      </ion-item>
+    </form>
     <div padding>
-      <button ion-button color="primary" block>Salvar</button>
+      <button (click)="save()" ion-button color="primary" block>Salvar</button>
     </div>
 
   </ion-list>

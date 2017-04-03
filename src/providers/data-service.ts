@@ -8,7 +8,8 @@ import { ToastController } from 'ionic-angular';
 
 @Injectable()
 export class DataService {
-    private serviceUrl: string = 'http://localhost/WeblocacaoAdmin/api/';
+    private serviceUrl: string = 'http://localhost:5000/api/';
+    // private serviceUrl: string = 'http://localhost/WeblocacaoAdmin/api/';
 
     constructor(public http: Http, public toastCtrl: ToastController) {
     }
@@ -25,6 +26,17 @@ export class DataService {
         let options = new RequestOptions({ headers: headers });
 
         return this.http.get(this.serviceUrl + 'Account',options)
+            .map((res: Response) => res.json());
+    }
+
+     addPay(data: any) {
+         console.log(data);
+        var token = localStorage.getItem('wlapp.token');
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        headers.append('Authorization', `Bearer ${token}`); Headers
+        let options = new RequestOptions({ headers: headers });
+        return this.http
+            .post(this.serviceUrl + 'Account', data, options)
             .map((res: Response) => res.json());
     }
 
