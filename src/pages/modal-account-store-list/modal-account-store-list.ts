@@ -85,7 +85,7 @@ export class ModalAccountStoreListPage {
       .subscribe(data => {
         loading.dismiss();
          let toast = this.toastCtrl.create({
-          message: 'Pagamento incluído com sucesso: ',
+          message: 'Pagamento incluído com sucesso.',
           duration: 7000,
           position: 'top'
         });

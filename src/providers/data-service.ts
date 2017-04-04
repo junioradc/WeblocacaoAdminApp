@@ -8,7 +8,7 @@ import { ToastController } from 'ionic-angular';
 
 @Injectable()
 export class DataService {
-    private serviceUrl: string = 'http://localhost:5000/api/';
+    private serviceUrl: string = 'http://adminapi.weblocacao.com.br/api/';
     // private serviceUrl: string = 'http://localhost/WeblocacaoAdmin/api/';
 
     constructor(public http: Http, public toastCtrl: ToastController) {
@@ -37,7 +37,9 @@ export class DataService {
         let options = new RequestOptions({ headers: headers });
         return this.http
             .post(this.serviceUrl + 'Account', data, options)
-            .map((res: Response) => res.json());
+            .map((res: Response) =>
+            
+             res.json());
     }
 
 }
