@@ -8,8 +8,9 @@ import { ToastController } from 'ionic-angular';
 
 @Injectable()
 export class DataService {
-    private serviceUrl: string = 'http://adminapi.weblocacao.com.br/api/';
+    // private serviceUrl: string = 'http://adminapi.weblocacao.com.br/api/';
     // private serviceUrl: string = 'http://localhost/WeblocacaoAdmin/api/';
+    private serviceUrl: string = 'http://weblocacao.cloudapp.net/emporiumwebapiapp/api/';
 
     constructor(public http: Http, public toastCtrl: ToastController) {
     }
